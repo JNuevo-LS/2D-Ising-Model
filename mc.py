@@ -70,7 +70,6 @@ def fit_exponential(initial_value, final_value, last_step):
 
 def simulate_changing_T(state, initial_beta, final_beta, epochs):
     history = np.empty((epochs + 1, *state.shape), dtype=np.int8)
-    distances = np.empty(epochs)
     energies = np.empty(epochs)
     history[0] = state
 
@@ -82,4 +81,4 @@ def simulate_changing_T(state, initial_beta, final_beta, epochs):
         history[i + 1] = state
         energies[i] = energy_per_spin(state)
 
-    return history, distances
+    return history, energies
