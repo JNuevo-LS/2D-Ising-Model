@@ -8,7 +8,6 @@ h = 0.0
 k_B = 1
 T = 1.5
 beta = 1 / (k_B * T)
-lattice_size = 16
 
 
 def initial_state(N):

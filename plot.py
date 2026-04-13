@@ -39,5 +39,8 @@ for energies, T in energies_by_T:
     ax.scatter(np.arange(0, len(energies), 1), energies)
     ax.set_xlabel("Step")
     ax.set_ylabel("Average Energy")
+    ax.set_title(
+        f"{lattice_size}x{lattice_size} Lattice at T = {T}\u00b0K (Natural Units)"
+    )
     fig.savefig(f"plots/average_energy_T={T}.png", bbox_inches="tight")
     plt.close()
