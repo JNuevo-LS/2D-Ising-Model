@@ -27,9 +27,6 @@ def energy_per_spin(state):
 
 @numba.jit
 def step(state, beta):
-    N = state.shape[0]
-    exp_sum = 0.0
-
     def delta_E(state, i, j) -> float:
         N = len(state)
         s = state[i][j]
@@ -45,7 +42,6 @@ def step(state, beta):
     for i in range(len(state)):
         for j in range(len(state[0])):
             dE: float = delta_E(state, i, j)
-            exp_sum += np.exp(-beta * dE)
 
             # Standard Metropolis accept/reject
             if dE <= 0 or random.random() < np.exp(-beta * dE):
