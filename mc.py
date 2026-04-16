@@ -120,7 +120,7 @@ def simulate_changing_T_heat_bath(
         beta = lambda i: initial_beta * np.exp(exponential_rate * i)
 
     for i in range(epochs):
-        step_heat_bath(state, beta(i))
+        sweep_heat_bath(state, beta(i))
         history[i + 1] = state
         energies[i] = energy_per_spin(state)
 
